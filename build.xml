@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="mongodb_admin_panel" default="all">
+  
+  
+  <property file="build.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/RCS/**"/>
+    <exclude name="**/SCCS/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/rcs/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.war"/>
+    <include name="*.swc"/>
+    <include name="*.apk"/>
+    <include name="*.zip"/>
+    <include name="*.egg"/>
+    <include name="*.ane"/>
+    <include name="*.jar"/>
+    <include name="*.ear"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+    <exclude name="**/?*.aj"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.1.8" value="${jdk.home.1.8}/bin"/>
+  <path id="jdk.classpath.1.8">
+    <fileset dir="${jdk.home.1.8}">
+      <include name="jre/lib/charsets.jar"/>
+      <include name="jre/lib/deploy.jar"/>
+      <include name="jre/lib/ext/access-bridge-64.jar"/>
+      <include name="jre/lib/ext/cldrdata.jar"/>
+      <include name="jre/lib/ext/dnsns.jar"/>
+      <include name="jre/lib/ext/jaccess.jar"/>
+      <include name="jre/lib/ext/jfxrt.jar"/>
+      <include name="jre/lib/ext/localedata.jar"/>
+      <include name="jre/lib/ext/nashorn.jar"/>
+      <include name="jre/lib/ext/sunec.jar"/>
+      <include name="jre/lib/ext/sunjce_provider.jar"/>
+      <include name="jre/lib/ext/sunmscapi.jar"/>
+      <include name="jre/lib/ext/sunpkcs11.jar"/>
+      <include name="jre/lib/ext/zipfs.jar"/>
+      <include name="jre/lib/javaws.jar"/>
+      <include name="jre/lib/jce.jar"/>
+      <include name="jre/lib/jfr.jar"/>
+      <include name="jre/lib/jfxswt.jar"/>
+      <include name="jre/lib/jsse.jar"/>
+      <include name="jre/lib/management-agent.jar"/>
+      <include name="jre/lib/plugin.jar"/>
+      <include name="jre/lib/resources.jar"/>
+      <include name="jre/lib/rt.jar"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.1.8}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.1.8}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.1.8"/>
+  
+  
+  <!-- Project Libraries -->
+  
+  <path id="library.controlsfx-8.0.6_20.classpath">
+    <pathelement location="${basedir}/lib/controlsfx-8.0.6_20.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.mongodb:bson:3.2.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/mongodb/bson/3.2.1/bson-3.2.1.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.mongodb:mongodb-driver-core:3.2.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/mongodb/mongodb-driver-core/3.2.1/mongodb-driver-core-3.2.1.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.mongodb:mongodb-driver:3.2.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/mongodb/mongodb-driver/3.2.1/mongodb-driver-3.2.1.jar"/>
+  </path>
+  
+  
+  <!-- Global Libraries -->
+  
+  <path id="library.aquafx-0.1.classpath">
+    <pathelement location="C:/Users/Blast/Downloads/aquafx-0.1.jar"/>
+    <pathelement location="C:/Users/Blast/Downloads/bson-3.0.4.jar"/>
+    <pathelement location="C:/Users/Blast/Downloads/groovyfx-0.4.0.jar"/>
+    <pathelement location="C:/Users/Blast/Downloads/jfoenix.jar"/>
+    <pathelement location="C:/Users/Blast/Downloads/mongo-java-driver-3.2.1.jar"/>
+  </path>
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <pathelement location="${javac2.home}/javac2.jar"/>
+    <pathelement location="${javac2.home}/jdom.jar"/>
+    <pathelement location="${javac2.home}/asm-all.jar"/>
+    <pathelement location="${javac2.home}/jgoodies-forms.jar"/>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+  </target>
+  
+  <!-- Modules -->
+  
+  
+  <!-- Module MongoDB Panel -->
+  
+  <dirname property="module.mongodb_panel.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.mongodb_panel" value="${jdk.home.1.8}"/>
+  <property name="module.jdk.bin.mongodb_panel" value="${jdk.bin.1.8}"/>
+  <property name="module.jdk.classpath.mongodb_panel" value="jdk.classpath.1.8"/>
+  
+  <property name="compiler.args.mongodb_panel" value="-encoding UTF-8 -source 8 -target 1.8 ${compiler.args}"/>
+  
+  <property name="mongodb_panel.output.dir" value="${module.mongodb_panel.basedir}/out/production/MongoDB Panel"/>
+  <property name="mongodb_panel.testoutput.dir" value="${module.mongodb_panel.basedir}/out/test/MongoDB Panel"/>
+  
+  <path id="mongodb_panel.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="mongodb_panel.module.production.classpath">
+    <path refid="${module.jdk.classpath.mongodb_panel}"/>
+    <path refid="library.controlsfx-8.0.6_20.classpath"/>
+    <path refid="library.aquafx-0.1.classpath"/>
+    <path refid="library.maven:_org.mongodb:mongodb-driver:3.2.1.classpath"/>
+    <path refid="library.maven:_org.mongodb:bson:3.2.1.classpath"/>
+    <path refid="library.maven:_org.mongodb:mongodb-driver-core:3.2.1.classpath"/>
+  </path>
+  
+  <path id="mongodb_panel.runtime.production.module.classpath">
+    <pathelement location="${mongodb_panel.output.dir}"/>
+    <path refid="library.controlsfx-8.0.6_20.classpath"/>
+    <path refid="library.aquafx-0.1.classpath"/>
+    <path refid="library.maven:_org.mongodb:mongodb-driver:3.2.1.classpath"/>
+    <path refid="library.maven:_org.mongodb:bson:3.2.1.classpath"/>
+    <path refid="library.maven:_org.mongodb:mongodb-driver-core:3.2.1.classpath"/>
+  </path>
+  
+  <path id="mongodb_panel.module.classpath">
+    <path refid="${module.jdk.classpath.mongodb_panel}"/>
+    <pathelement location="${mongodb_panel.output.dir}"/>
+    <path refid="library.controlsfx-8.0.6_20.classpath"/>
+    <path refid="library.aquafx-0.1.classpath"/>
+    <path refid="library.maven:_org.mongodb:mongodb-driver:3.2.1.classpath"/>
+    <path refid="library.maven:_org.mongodb:bson:3.2.1.classpath"/>
+    <path refid="library.maven:_org.mongodb:mongodb-driver-core:3.2.1.classpath"/>
+  </path>
+  
+  <path id="mongodb_panel.runtime.module.classpath">
+    <pathelement location="${mongodb_panel.testoutput.dir}"/>
+    <pathelement location="${mongodb_panel.output.dir}"/>
+    <path refid="library.controlsfx-8.0.6_20.classpath"/>
+    <path refid="library.aquafx-0.1.classpath"/>
+    <path refid="library.maven:_org.mongodb:mongodb-driver:3.2.1.classpath"/>
+    <path refid="library.maven:_org.mongodb:bson:3.2.1.classpath"/>
+    <path refid="library.maven:_org.mongodb:mongodb-driver-core:3.2.1.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.mongodb_panel">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.mongodb_panel">
+    <patternset refid="excluded.from.module.mongodb_panel"/>
+  </patternset>
+  
+  <path id="mongodb_panel.module.sourcepath">
+    <dirset dir="${module.mongodb_panel.basedir}">
+      <include name="src/main/java"/>
+      <include name="src/main/resources"/>
+    </dirset>
+  </path>
+  
+  <path id="mongodb_panel.module.test.sourcepath">
+    <dirset dir="${module.mongodb_panel.basedir}">
+      <include name="src/test/java"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.mongodb_panel" depends="compile.module.mongodb_panel.production,compile.module.mongodb_panel.tests" description="Compile module MongoDB Panel"/>
+  
+  <target name="compile.module.mongodb_panel.production" depends="register.custom.compilers" description="Compile module MongoDB Panel; production classes">
+    <mkdir dir="${mongodb_panel.output.dir}"/>
+    <javac2 destdir="${mongodb_panel.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.mongodb_panel}/javac">
+      <compilerarg line="${compiler.args.mongodb_panel}"/>
+      <bootclasspath refid="mongodb_panel.module.bootclasspath"/>
+      <classpath refid="mongodb_panel.module.production.classpath"/>
+      <src refid="mongodb_panel.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.mongodb_panel"/>
+    </javac2>
+    
+    <copy todir="${mongodb_panel.output.dir}">
+      <fileset dir="${module.mongodb_panel.basedir}/src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.mongodb_panel.basedir}/src/main/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.mongodb_panel.tests" depends="register.custom.compilers,compile.module.mongodb_panel.production" description="compile module MongoDB Panel; test classes" unless="skip.tests">
+    <mkdir dir="${mongodb_panel.testoutput.dir}"/>
+    <javac2 destdir="${mongodb_panel.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.mongodb_panel}/javac">
+      <compilerarg line="${compiler.args.mongodb_panel}"/>
+      <bootclasspath refid="mongodb_panel.module.bootclasspath"/>
+      <classpath refid="mongodb_panel.module.classpath"/>
+      <src refid="mongodb_panel.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.mongodb_panel"/>
+    </javac2>
+    
+    <copy todir="${mongodb_panel.testoutput.dir}">
+      <fileset dir="${module.mongodb_panel.basedir}/src/test/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.mongodb_panel" description="cleanup module">
+    <delete dir="${mongodb_panel.output.dir}"/>
+    <delete dir="${mongodb_panel.testoutput.dir}"/>
+  </target>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.mongodb_panel" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.mongodb_panel" description="build all modules"/>
+  
+  <target name="all" depends="build.modules" description="build all"/>
+</project>
