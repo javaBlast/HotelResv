@@ -11,6 +11,17 @@
             </list>
           </option>
         </ServerConfiguration>
+        <ServerConfiguration>
+          <option name="label" value="ds023078.mlab.com:23078" />
+          <option name="password" value="benzocar" />
+          <option name="serverUrls">
+            <list>
+              <option value="ds023078.mlab.com:23078" />
+            </list>
+          </option>
+          <option name="userDatabase" value="hotreserv" />
+          <option name="username" value="sardak" />
+        </ServerConfiguration>
       </list>
     </option>
     <option name="shellPath" value="C:\Program Files\MongoDB\Server\3.2\bin\mongod.exe" />

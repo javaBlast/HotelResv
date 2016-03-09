@@ -11,10 +11,10 @@
     </content>
     <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="controlsfx-8.0.6_20" level="project" />
-    <orderEntry type="library" name="aquafx-0.1" level="application" />
     <orderEntry type="library" name="Maven: org.mongodb:mongodb-driver:3.2.1" level="project" />
     <orderEntry type="library" name="Maven: org.mongodb:bson:3.2.1" level="project" />
     <orderEntry type="library" name="Maven: org.mongodb:mongodb-driver-core:3.2.1" level="project" />
+    <orderEntry type="library" name="Maven: org.mongodb:mongo-java-driver:3.2.1" level="project" />
+    <orderEntry type="library" name="Maven: org.controlsfx:controlsfx:8.0.1" level="project" />
   </component>
 </module>
