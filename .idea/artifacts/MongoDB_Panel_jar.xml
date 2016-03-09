@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact build-on-make="true" name="MongoDB Panel:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/MongoDB_Panel_jar</output-path>
+    <root id="root">
+      <element id="archive" name="MongoDB Panel.jar">
+        <element id="module-output" name="MongoDB Panel" />
+      </element>
+      <element id="library" level="application" name="aquafx-0.1" />
+      <element id="library" level="project" name="Maven: org.mongodb:mongodb-driver:3.2.1" />
+      <element id="library" level="project" name="Maven: org.mongodb:bson:3.2.1" />
+      <element id="library" level="project" name="controlsfx-8.0.6_20" />
+      <element id="library" level="project" name="Maven: org.mongodb:mongodb-driver-core:3.2.1" />
+      <element id="dir-copy" path="$PROJECT_DIR$/src/main/resources/fxml" />
+    </root>
+  </artifact>
+</component>

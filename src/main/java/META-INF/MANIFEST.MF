@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Class-Path: aquafx-0.1.jar bson-3.0.4.jar groovyfx-0.4.0.jar jfoenix.j
+ ar mongo-java-driver-3.2.1.jar mongodb-driver-3.2.1.jar bson-3.2.1.ja
+ r controlsfx-8.0.6_20.jar mongodb-driver-core-3.2.1.jar
+Main-Class: ch.makery.address.MainApp
+Boot-Class-Path: resources
+
